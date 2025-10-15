@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Appointments</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h2>📋 My Appointments</h2>
+
+        <ul id="appointments-list" class="appointments-list">
+            <!-- Appointments will be populated here via Java -->
+            <li>Loading...</li>
+        </ul>
+
+        <div class="back-link">
+            <a href="/student_dashboard.html">← Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // If no appointments, show message
+    const list = document.getElementById('appointments-list');
+    if (list.children.length === 1 && list.children[0].innerText === 'Loading...') {
+        list.innerHTML = '<li>No appointments found.</li>';
+    }
+</script>
+</body>
+</html>

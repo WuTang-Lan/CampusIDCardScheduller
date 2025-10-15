@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h2>👁️ Admin Dashboard – Appointments</h2>
+
+        <table class="appointments-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Student ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Populate via Java -->
+            <% for (Appointment app : appointments) { %>
+            <tr>
+                <td><%= app.getAppointmentId() %></td>
+                <td><%= app.getStudentId() %></td>
+                <td><%= app.getAppointmentDate() %></td>
+                <td><%= app.getTimeSlot() %></td>
+                <td><%= app.getStatus() %></td>
+                <td>
+                    <form method="post" action="/admin/update" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= app.getAppointmentId() %>">
+                        <select name="status">
+                            <option value="Scheduled" <%= "Scheduled".equals(app.getStatus()) ? "selected" : "" %>>Scheduled</option>
+                            <option value="Completed" <%= "Completed".equals(app.getStatus()) ? "selected" : "" %>>Completed</option>
+                            <option value="Cancelled" <%= "Cancelled".equals(app.getStatus()) ? "selected" : "" %>>Cancelled</option>
+                        </select>
+                        <button type="submit" class="btn-small">Update</button>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+
+        <div class="back-link">
+            <a href="/login.html">Logout</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

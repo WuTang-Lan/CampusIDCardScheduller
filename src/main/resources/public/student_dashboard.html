@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>🎓 Student Dashboard</h1>
+        <p class="welcome">Welcome! You can manage your ID card process here.</p>
+
+        <ul class="actions">
+            <li>
+                <a href="appointment_form.html">
+                    <span class="icon">📅</span>
+                    Book ID Photo Appointment
+                </a>
+            </li>
+            <li>
+                <a href="/my-appointments">
+                    <span class="icon">📋</span>
+                    View My Appointments
+                </a>
+            </li>
+            <li>
+                <a href="/admin" target="_blank">
+                    <span class="icon">👁️</span>
+                    Admin Dashboard (Demo)
+                </a>
+            </li>
+        </ul>
+
+        <div id="msg" class="success-message"></div>
+        <script>
+            if (new URLSearchParams(window.location.search).has('booked')) {
+                document.getElementById('msg').innerText = '✅ Appointment booked successfully!';
+            }
+        </script>
+
+        <div class="logout-section">
+            <a href="/logout" class="logout-btn">
+                <span class="icon">🚪</span>
+                Logout
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
